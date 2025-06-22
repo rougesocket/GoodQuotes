@@ -220,3 +220,26 @@ GET /quotes/popular?page=0&size=10
     }
 }
 ```
+### 🔹 Get a Random Quote
+
+Returns a single, randomly selected quote from the MongoDB collection.
+
+- **URL**: `/quotes/random`
+- **Method**: `GET`
+- **Response**: A single quote object (or empty optional)
+
+---
+
+#### ✅ Sample Request
+
+```http
+GET /quotes/random
+```
+```Json
+{
+  "id": "6857d031ca0197cddc512ba9",
+  "quote": "And to 'scape stormy days, I choose an everlasting night.",
+  "author": "John Donne,  The Complete English Poems",
+  "category": "poetry"
+}
+```

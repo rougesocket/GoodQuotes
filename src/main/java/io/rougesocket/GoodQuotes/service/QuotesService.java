@@ -30,4 +30,8 @@ public class QuotesService {
     public Page<Quote> getQuotesByPopularity(Pageable pageable) {
         return repo.findAllByOrderByPopularityDesc(pageable);
     }
+
+    public Quote getRandomQuote() {
+        return repo.getRandomQuote().orElseThrow();
+    }
 }

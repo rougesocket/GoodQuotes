@@ -44,4 +44,9 @@ public class QuotesController {
         Page<Quote> categoryData = service.getQuotesByPopularity(pageable);
         return new PagedModel<>(categoryData);
     }
+
+    @GetMapping("/random")
+    public Quote getRandomQuote(){
+        return service.getRandomQuote();
+    }
 }

@@ -1,4 +1,4 @@
-# 📚 Quotes API - Spring Boot + MongoDB
+# 📚 GoodQuotes API - Spring Boot + MongoDB
 
 A simple RESTful API for managing inspirational quotes, built with **Spring Boot** and **MongoDB**.
 
@@ -6,7 +6,8 @@ A simple RESTful API for managing inspirational quotes, built with **Spring Boot
 
 ## 🚀 Features
 
-- Create, read, update, and delete quotes
+- Get quotes based on id,category,author or tags
+- Get Random quote
 - Search quotes by author
 - MongoDB-backed persistence
 - RESTful and easy to use

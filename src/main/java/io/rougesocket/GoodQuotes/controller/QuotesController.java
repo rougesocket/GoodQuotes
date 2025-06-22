@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PagedModel;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/quotes")
 public class QuotesController {
@@ -48,5 +50,13 @@ public class QuotesController {
     @GetMapping("/random")
     public Quote getRandomQuote(){
         return service.getRandomQuote();
+    }
+
+    @GetMapping("/tags")
+    public PagedModel<Quote> getQuotesByPopularity(@RequestParam List<String> tags, @RequestParam(value="page",defaultValue = "0")int page,
+                                                   @RequestParam(value="size",defaultValue = "20")int pageSize){
+        Pageable pageable = PageRequest.of(page,pageSize);
+        Page<Quote> categoryData = service.getQuotesByTag(tags,pageable);
+        return new PagedModel<>(categoryData);
     }
 }

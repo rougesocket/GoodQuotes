@@ -244,3 +244,101 @@ GET /quotes/random
   "category": "poetry"
 }
 ```
+### 🔹 Get Quotes by Tags (Paginated)
+
+Returns all quotes that match **any** of the provided tags, with pagination support.
+
+- **URL**: `/quotes/tags`
+- **Method**: `GET`
+- **Query Parameters**:
+  - `tags` – Comma-separated list of tags (e.g., `humor,poetry`)
+  - `page` – Page number (optional, default = `0`)
+  - `size` – Page size (optional, default = `20`)
+
+---
+
+#### ✅ Sample Request
+
+```http
+GET /quotes/tags?tags=humor,poetry&size=5
+```
+```Json
+{
+  "content": [
+    {
+      "id": "6857d02fca0197cddc50ae76",
+      "quote": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+      "author": "Albert Einstein",
+      "category": "humor",
+      "tags": [
+        "attributed-no-source",
+        "human-nature",
+        "humor",
+        "infinity",
+        "philosophy",
+        "science",
+        "stupidity",
+        "universe "
+      ]
+    },
+    {
+      "id": "6857d02fca0197cddc50ae77",
+      "quote": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+      "author": "Albert Einstein",
+      "category": "philosophy",
+      "tags": [
+        "attributed-no-source",
+        "human-nature",
+        "humor",
+        "infinity",
+        "philosophy",
+        "science",
+        "stupidity",
+        "universe "
+      ]
+    },
+    {
+      "id": "6857d02fca0197cddc50ae78",
+      "quote": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+      "author": "Albert Einstein",
+      "category": "science",
+      "tags": [
+        "attributed-no-source",
+        "human-nature",
+        "humor",
+        "infinity",
+        "philosophy",
+        "science",
+        "stupidity",
+        "universe "
+      ]
+    },
+    {
+      "id": "6857d02fca0197cddc50ae82",
+      "quote": "You only live once, but if you do it right, once is enough.",
+      "author": "Mae West",
+      "category": "life",
+      "tags": [
+        "humor",
+        "life "
+      ]
+    },
+    {
+      "id": "6857d02fca0197cddc50ae83",
+      "quote": "You only live once, but if you do it right, once is enough.",
+      "author": "Mae West",
+      "category": "humor",
+      "tags": [
+        "humor",
+        "life "
+      ]
+    }
+  ],
+  "page": {
+    "size": 5,
+    "number": 0,
+    "totalElements": 9024,
+    "totalPages": 1805
+  }
+}
+```

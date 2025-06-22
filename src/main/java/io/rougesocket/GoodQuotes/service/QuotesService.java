@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,5 +34,9 @@ public class QuotesService {
 
     public Quote getRandomQuote() {
         return repo.getRandomQuote().orElseThrow();
+    }
+
+    public Page<Quote> getQuotesByTag(List<String> tags, Pageable pageable) {
+        return repo.findByTagsIn(tags,pageable);
     }
 }

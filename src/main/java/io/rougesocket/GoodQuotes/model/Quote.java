@@ -2,11 +2,11 @@ package io.rougesocket.GoodQuotes.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.List;
 
 @Document(collection = "goodquotes")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -22,7 +22,16 @@ public class Quote {
     @JsonIgnore
     @Field("Popularity")
     private String popularity;
+    @Field("Tags")
+    private List<String> tags;
 
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
 
     public String getPopularity() {
         return popularity;
@@ -67,11 +76,12 @@ public class Quote {
         this.author = author;
     }
 
-    public Quote(String id, String quote, String author, String category, String popularity) {
+    public Quote(String id, String quote, String author, String category, String popularity, List<String> tags) {
         this.id = id;
         this.quote = quote;
         this.author = author;
         this.category = category;
         this.popularity = popularity;
+        this.tags = tags;
     }
 }

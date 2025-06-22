@@ -6,6 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface QuoteRepo extends MongoRepository<Quote,String> , RandomQuotesRepo {
 
@@ -14,4 +16,6 @@ public interface QuoteRepo extends MongoRepository<Quote,String> , RandomQuotesR
     Page<Quote> findAllByCategory(String category, Pageable pageable);
 
     Page<Quote> findAllByOrderByPopularityDesc(Pageable pageable);
+
+    Page<Quote> findByTagsIn(List<String> tags,Pageable pageable);
 }

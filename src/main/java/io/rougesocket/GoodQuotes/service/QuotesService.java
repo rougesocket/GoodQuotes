@@ -14,11 +14,20 @@ public class QuotesService {
 
     @Autowired
     private QuoteRepo repo;
+
     public Optional<Quote> getQuoteById(String id) {
         return repo.findById(id);
     }
 
     public Page<Quote> getQuotesByAuthor(String author,Pageable pageable){
         return repo.findAllByAuthor(author,pageable);
+    }
+
+    public Page<Quote> getAllQuotesByCategory(String category, Pageable pageable) {
+        return repo.findAllByCategory(category,pageable);
+    }
+
+    public Page<Quote> getQuotesByPopularity(Pageable pageable) {
+        return repo.findAllByOrderByPopularityDesc(pageable);
     }
 }

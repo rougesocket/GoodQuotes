@@ -28,4 +28,20 @@ public class QuotesController {
         Page<Quote> pageData = service.getQuotesByAuthor(author,pageable);
         return new PagedModel<>(pageData);
     }
+
+    @GetMapping("/category/{category}")
+    public PagedModel<Quote> getAllQuotes(@PathVariable String category,@RequestParam(value="page",defaultValue = "0")int page,
+                                          @RequestParam(value="size",defaultValue = "20")int pageSize){
+        Pageable pageable = PageRequest.of(page,pageSize);
+        Page<Quote> categoryData = service.getAllQuotesByCategory(category,pageable);
+        return new PagedModel<>(categoryData);
+    }
+
+    @GetMapping("/popular")
+    public PagedModel<Quote> getQuotesByPopularity(@RequestParam(value="page",defaultValue = "0")int page,
+                                          @RequestParam(value="size",defaultValue = "20")int pageSize){
+        Pageable pageable = PageRequest.of(page,pageSize);
+        Page<Quote> categoryData = service.getQuotesByPopularity(pageable);
+        return new PagedModel<>(categoryData);
+    }
 }

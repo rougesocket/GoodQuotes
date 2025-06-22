@@ -10,4 +10,8 @@ import org.springframework.stereotype.Repository;
 public interface QuoteRepo extends MongoRepository<Quote,String> {
 
     Page<Quote> findAllByAuthor(String Author,Pageable pageable);
+
+    Page<Quote> findAllByCategory(String category, Pageable pageable);
+
+    Page<Quote> findAllByOrderByPopularityDesc(Pageable pageable);
 }

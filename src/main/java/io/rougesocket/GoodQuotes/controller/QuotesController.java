@@ -2,6 +2,7 @@ package io.rougesocket.GoodQuotes.controller;
 
 import io.rougesocket.GoodQuotes.model.Quote;
 import io.rougesocket.GoodQuotes.service.QuotesService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/quotes")
+@Tag(name = "GoodQuotes", description = "Operations related to quotes")
 public class QuotesController {
     @Autowired
     private QuotesService service;

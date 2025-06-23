@@ -23,7 +23,11 @@ A simple RESTful API for managing inspirational quotes, built with **Spring Boot
 - Maven / Gradle
 
 ---
+# 📘 API Documentation with Swagger (springdoc-openapi)
 
+This project uses [**springdoc-openapi**](https://springdoc.org/) to automatically generate Swagger UI and OpenAPI 3 documentation for all REST endpoints.
+
+---
 ## 📦 API Endpoints
 
 ### 🔹 Get Quotes By Id
